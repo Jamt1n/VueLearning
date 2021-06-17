@@ -12,7 +12,7 @@ window.templateEngine = {
     // console.log(scanner.pos);
     // console.log(words);
     let word;
-    while(scanner.pos != templateStr.length) {
+    while(!scanner.eos()) {
       word = scanner.scanUntil("{{")
       console.log(word);
       scanner.scan("{{")

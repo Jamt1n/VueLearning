@@ -27,12 +27,16 @@ export default class Scanner{
     // 记录执行本方法的pos
     const pos_backup = this.pos;
     // 尾的头不是stopTap就是没扫描到
-    while(this.tail.indexOf(stopTag) != 0 && this.pos < this.templateStr.length) {
+    while(!this.eos() && this.tail.indexOf(stopTag) != 0) {
       this.pos++;
       // 尾从当前字符开始
       this.tail = this.templateStr.substr(this.pos)
     }
-    
+  
     return this.templateStr.substring(pos_backup, this.pos)
+  }
+
+  eos() {
+    return this.pos >= this.templateStr.length;
   }
 }
