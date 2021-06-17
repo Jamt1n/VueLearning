@@ -3,6 +3,10 @@
 1. **将模板字符串编译为tokens形式**
 2. **将tokens结合数据，解析为dom字符串**
 
+### 库的机理
+
+![image-20210617222342208](G:\vue\源码\mustache\README.assets\image-20210617222342208.png)
+
 
 
 ### 简单的正则表达式
@@ -107,4 +111,8 @@ templateStr.replace(/\{\{(\w+)\}\}/g, function(fildStr, $1)){return data[$1]}
     ["text", "</ol></div>"]
 ]
 ```
+
+
+
+
 
