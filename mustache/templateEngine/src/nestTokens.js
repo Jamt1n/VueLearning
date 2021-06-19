@@ -39,6 +39,6 @@ export default function nestTokens(tokens) {
         }
     }
   }
-
+  console.log(nestedTokens)
   return nestedTokens;
 }

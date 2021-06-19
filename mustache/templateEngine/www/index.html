@@ -18,11 +18,11 @@
             <ol>
                 {{#students}}
                 <li>
-                    学生{{item.name}}的爱好是
+                    学生{{name}}的爱好是
                     <ol>
-                        {{#item.hobbies}}
+                        {{#hobbies}}
                         <li>{{.}}</li>
-                        {{/item.hobbies}}
+                        {{/hobbies}}
                     </ol>
                 </li>
                 {{/students}}
