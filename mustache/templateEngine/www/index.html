@@ -7,26 +7,27 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>hello</h1>
+    <div class="container"></div>
 
     <script src="/xuni/bundle.js"></script>
 
     <script>
       // let templateStr = '我买了一个{{thing}}，好{{mood}}啊';
-      let templateStr = `<div>
-    <ol>
-        {{#students}}
-        <li>
-        	学生{{item.name}}的爱好是
+      let templateStr = `
+        <div>
             <ol>
-                {{#item.hobbies}}
-                <li>{{.}}</li>
-                {{/item.hobbies}}
+                {{#students}}
+                <li>
+                    学生{{item.name}}的爱好是
+                    <ol>
+                        {{#item.hobbies}}
+                        <li>{{.}}</li>
+                        {{/item.hobbies}}
+                    </ol>
+                </li>
+                {{/students}}
             </ol>
-        </li>
-        {{/students}}
-    </ol>
-</div>`;
+        </div>`;
       const data = {
         students: [
           {'name' : '小明','hobbies' : ['游泳','健身']},
@@ -35,7 +36,10 @@
         ]
       };
 
-      templateEngine.render(templateStr, data);
+      let domStr = templateEngine.render(templateStr, data);
+
+      let container = document.querySelector('.container')
+      container.innerHTML = domStr;
     </script>
   </body>
 </html>

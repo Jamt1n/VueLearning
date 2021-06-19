@@ -4,6 +4,7 @@
  * @param data
  */
 import lookup from "./lookup";
+import parseArray from "./parseArray";
 export default function renderTemplate(tokens, data) {
   console.log(tokens);
   let resStr = "";
@@ -15,7 +16,7 @@ export default function renderTemplate(tokens, data) {
     } else if (token[0] == "name") {
       resStr += lookup(data, token[1]);
     } else if (token[0] == "#") {
-      resStr += lookup(data, token[1]);
+        resStr += parseArray(token, data)
     }
   }
 }

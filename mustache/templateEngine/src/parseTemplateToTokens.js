@@ -12,7 +12,24 @@ export default function parseTemplateToTokens(templateStr) {
     // 收集开始标记
     word = scanner.scanUntil("{{");
     if (word != "") {
-      tokens.push(["text", word]);
+      // 智能去空格
+      let isInJJH = false;
+      let _words = "";
+      for (let i = 0; i < word.length; i++) {
+        if (word[i] == "<") {
+          isInJJH = true;
+        } else if (word[i] == ">") {
+          isInJJH = false;
+        }
+        if (!/\s/.test(word[i])) {
+          _words += word[i];
+        } else {
+          if (isInJJH) {
+            _words += " ";
+          }
+        }
+      }
+      tokens.push(["text", _words]);
       // console.log(word);
     }
     scanner.scan("{{");

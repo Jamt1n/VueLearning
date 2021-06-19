@@ -26,6 +26,8 @@ window.templateEngine = {
     // 模板字符串变tokens
     let tokens = parseTemplateToTokens(templateStr);
     // 将tokens变为dom
-    let dom = renderTemplate(tokens, data)
+    let domStr = renderTemplate(tokens, data)
+
+    return domStr
   },
 };
