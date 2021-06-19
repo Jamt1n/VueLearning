@@ -1,5 +1,4 @@
-import Scanner from './Scanner';
-import parseTemplateToTokens from './parseTemplateToTokens';
+import parseTemplateToTokens from "./parseTemplateToTokens";
 
 window.templateEngine = {
   render(templateStr, data) {
@@ -18,13 +17,12 @@ window.templateEngine = {
     //   word = scanner.scanUntil("{{")
     //   console.log(word);
     //   scanner.scan("{{")
-      
+
     //   word = scanner.scanUntil("}}");
     //   console.log(word);
     //   scanner.scan("}}")
     // }
 
-
     let tokens = parseTemplateToTokens(templateStr);
-  }
-}
+  },
+};

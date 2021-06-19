@@ -1,4 +1,5 @@
-import Scanner from './Scanner';
+import Scanner from "./Scanner";
+import nestTokens from "./nestTokens";
 
 export default function parseTemplateToTokens(templateStr) {
   let tokens = [];
@@ -7,30 +8,30 @@ export default function parseTemplateToTokens(templateStr) {
   let scanner = new Scanner(templateStr);
 
   let word;
-  while(!scanner.eos()) {
+  while (!scanner.eos()) {
     // 收集开始标记
-    word = scanner.scanUntil("{{")
-    if(word != '') {
-      tokens.push(['text', word])
+    word = scanner.scanUntil("{{");
+    if (word != "") {
+      tokens.push(["text", word]);
       console.log(word);
     }
-    scanner.scan("{{")
-    
+    scanner.scan("{{");
+
     word = scanner.scanUntil("}}");
-    if(word != '') {
-      if(word[0] == "#") {
+    if (word != "") {
+      if (word[0] == "#") {
         // 懂下标为1开始存
-        tokens.push(['#', word.substring(1)])
-      }else if (word[0] == '/') {
-        tokens.push(['/', word.substring(1)])
-      }else {
+        tokens.push(["#", word.substring(1)]);
+      } else if (word[0] == "/") {
+        tokens.push(["/", word.substring(1)]);
+      } else {
         console.log(word);
-        tokens.push(['text', word])
+        tokens.push(["text", word]);
       }
     }
-    scanner.scan("}}")
+    scanner.scan("}}");
   }
 
   console.log(tokens);
-  return tokens;
+  return nestTokens(tokens);
 }
