@@ -25,7 +25,7 @@ export default function nestTokens(tokens) {
         break;
       case "/":
         // 出栈
-        let section_pop = sections.pop();
+        sections.pop();
         // console.log(a[1],'出栈了');
         collector =
           sections.length > 0 ? sections[sections.length - 1][2] : nestedTokens;

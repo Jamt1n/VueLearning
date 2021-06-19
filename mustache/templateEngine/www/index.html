@@ -27,7 +27,13 @@
         {{/students}}
     </ol>
 </div>`;
-      const data = {};
+      const data = {
+        students: [
+          {'name' : '小明','hobbies' : ['游泳','健身']},
+          {'name' : '小红','hobbies' : ['足球','篮球','羽毛球']},
+          {'name' : '小强','hobbies' : ['吃饭','睡觉']}
+        ]
+      };
 
       templateEngine.render(templateStr, data);
     </script>

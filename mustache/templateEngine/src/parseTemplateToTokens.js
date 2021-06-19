@@ -13,7 +13,7 @@ export default function parseTemplateToTokens(templateStr) {
     word = scanner.scanUntil("{{");
     if (word != "") {
       tokens.push(["text", word]);
-      console.log(word);
+      // console.log(word);
     }
     scanner.scan("{{");
 
@@ -25,8 +25,8 @@ export default function parseTemplateToTokens(templateStr) {
       } else if (word[0] == "/") {
         tokens.push(["/", word.substring(1)]);
       } else {
-        console.log(word);
-        tokens.push(["text", word]);
+        // console.log(word);
+        tokens.push(["name", word]);
       }
     }
     scanner.scan("}}");

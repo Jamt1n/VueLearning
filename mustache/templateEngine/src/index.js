@@ -1,4 +1,5 @@
 import parseTemplateToTokens from "./parseTemplateToTokens";
+import renderTemplate from "./renderTemplate";
 
 window.templateEngine = {
   render(templateStr, data) {
@@ -22,7 +23,9 @@ window.templateEngine = {
     //   console.log(word);
     //   scanner.scan("}}")
     // }
-
+    // 模板字符串变tokens
     let tokens = parseTemplateToTokens(templateStr);
+    // 将tokens变为dom
+    let dom = renderTemplate(tokens, data)
   },
 };
