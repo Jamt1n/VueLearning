@@ -19,8 +19,13 @@ const myVnode2 = h("div", { class: { box: true } }, "我是一个盒子");
 const myVnode3 = h("ul", [
   h("li", "苹果"),
   h("li", "西瓜"),
-  h("li", "香蕉"),
-  h("li", "火龙果")
+  h("li", [
+    h("div", [
+      h("p", "哈哈"),
+      h("p", "嘻嘻"),
+    ])
+  ]),
+  h("li", h("p", "火龙果"))
 ]);
 // 让虚拟节点上树
 let container = document.querySelector(".container");
