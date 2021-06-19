@@ -22,7 +22,7 @@
 
 - **一个虚拟节点的属性**
 
-![image-20210619164346394](G:\vue\源码\虚拟DOM和diff算法\README.assets\image-20210619164346394.png)
+![image-20210619164346394](README.assets/image-20210619164346394.png)
 
 #### h函数可以嵌套
 
