@@ -40,5 +40,5 @@ export default function nestTokens(tokens) {
     }
   }
 
-  return nestTokens;
+  return nestedTokens;
 }

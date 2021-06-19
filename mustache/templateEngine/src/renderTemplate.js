@@ -3,15 +3,19 @@
  * @param tokens
  * @param data
  */
+import lookup from "./lookup";
 export default function renderTemplate(tokens, data) {
-    let resStr = ''
-    for (let i = 0; i < tokens.length; i++) {
-        let token = tokens[i];
+  console.log(tokens);
+  let resStr = "";
+  for (let i = 0; i < tokens.length; i++) {
+    let token = tokens[i];
 
-        if (token[0] == 'text') {
-            resStr += token[1]
-        }else if (token[0] == 'name') {
-
-        }
+    if (token[0] == "text") {
+      resStr += token[1];
+    } else if (token[0] == "name") {
+      resStr += lookup(data, token[1]);
+    } else if (token[0] == "#") {
+      resStr += lookup(data, token[1]);
     }
+  }
 }
