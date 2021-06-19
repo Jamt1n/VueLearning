@@ -34,6 +34,11 @@
 
   ![image-20210619165908003](G:\vue\源码\虚拟DOM和diff算法\README.assets\image-20210619165908003.png)
 
+
+- h函数的活用
+
+  ![image-20210619170620987](G:\vue\源码\虚拟DOM和diff算法\README.assets\image-20210619170620987.png)
+
   
 
 ### diff算法原理
