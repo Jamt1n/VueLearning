@@ -5,7 +5,7 @@
 
 ### 库的机理
 
-![image-20210617222342208](README.assets\image-20210617222342208.png)
+![image-20210617222342208](README.assets/image-20210617222342208.png)
 
 
 

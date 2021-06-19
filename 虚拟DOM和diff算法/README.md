@@ -12,13 +12,13 @@
 
   得到
 
-  ![image-20210619164227292](README.assets\image-20210619164227292.png)
+  ![image-20210619164227292](README.assets/image-20210619164227292.png)
 
   真正的dom节点：
 
   
 
-  ![image-20210619164259596](README.assets\image-20210619164259596.png)
+  ![image-20210619164259596](README.assets/image-20210619164259596.png)
 
 - **一个虚拟节点的属性**
 
@@ -28,16 +28,16 @@
 
 - 比如这样嵌套使用
 
-  ![image-20210619165850050](README.assets\image-20210619165850050.png)
+  ![image-20210619165850050](README.assets/image-20210619165850050.png)
 
 - 将得到
 
-  ![image-20210619165908003](README.assets\image-20210619165908003.png)
+  ![image-20210619165908003](README.assets/image-20210619165908003.png)
 
 
 - h函数的活用
 
-  ![image-20210619170620987](README.assets\image-20210619170620987.png)
+  ![image-20210619170620987](README.assets/image-20210619170620987.png)
 
   
 
