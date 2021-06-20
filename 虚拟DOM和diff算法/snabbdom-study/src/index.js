@@ -1,24 +1,24 @@
-import h from './mysnabbdom/h'
+import h from "./mysnabbdom/h";
 import patch from "./mysnabbdom/patch";
 
-// let patch = init([classModule, propsModule, styleModule, eventListenersModule]);
-
+let myVnode1 = h("ul", {}, [
+  h("li", {}, "E"),
+  h("li", {}, "A"),
+  h("li", {}, "B"),
+  h("li", {}, [
+    h("div", {}, [h("ol", {}, [h("li", {}, "haha"), h("li", {}, "xixi")])]),
+  ]),
+  h("li", {}, "D"),
+]);
 
 const container = document.querySelector(".container");
-let btn = document.querySelector("#btn");
-
-
-let myVnode1 = h("h1", {}, '你好');
-
+const btn = document.querySelector("#btn");
 patch(container, myVnode1);
 
-// let myVnode2 = h("ul", {}, [
-//   h("li", {key:'E'}, "E"),
-//   h("li", {key:'A'}, "A"),
-//   h("li", {key:'B'}, "B"),
-//   h("li", {key:'C'}, "C"),
-//   h("li", {key:'D'}, "D"),
-// ]);
+let myVnode2 = h("section", {}, [
+  h("h1", {}, "我是新的h1"),
+  h("h2", {}, "我是新的h2"),
+]);
 
 btn.onclick = function () {
   patch(myVnode1, myVnode2);
