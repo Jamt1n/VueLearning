@@ -54,10 +54,22 @@
 
 ![image-20210620200625794](README.assets/image-20210620200625794.png)
 
-#### patch函数的递归
+#### patch函数
+
+##### -不是同一节点时候、暴力插入新的，删除旧的
 
 ![image-20210620234334812](README.assets/image-20210620234334812.png)
 
+- 传入的vode有children，同时还要递归子节点
 
+![image-20210621223008106](README.assets/image-20210621223008106.png)
+
+- 上树操作，利用parentNode的insertBefore去append到dom
+
+![image-20210621224023818](README.assets/image-20210621224023818.png)
+
+##### -是同一节点、精细化比较（重点）
+
+![image-20210621230305951](README.assets/image-20210621230305951.png)
 
 ### 手写diff算法
