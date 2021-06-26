@@ -17,7 +17,14 @@ const myVnode2 = h("ul", {}, [
   h("li", { key: "M" }, "M"),
   h("li", { key: "N" }, "N"),
   h("li", { key: "C" }, "C"),
+  h("li", { key: "D" }, "D"),
 ]);
+// const myVnode2 = h("ul", {}, [
+//   h("li", { key: "A" }, "A"),
+//   h("li", { key: "B" }, "B"),
+//   h("li", { key: "C" }, "C"),
+//   h("li", { key: "D" }, "D"),
+// ]);
 
 btn.onclick = function () {
   patch(myVnode1, myVnode2);

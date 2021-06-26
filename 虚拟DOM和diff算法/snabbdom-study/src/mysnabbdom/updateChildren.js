@@ -55,6 +55,26 @@ export default function updateChildren(parentElm, oldCh, newCh) {
             parentElm.insertBefore(oldEndVnode.elm, oldStartVnode.elm);
             oldEndVnode = oldCh[--oldEndIdx];
             newStartVnode = newCh[++newStartIdx];
+        }else {
+            // 1234都没找到，循环查找（先不写 要插入）
+
+        }
+    }
+
+    // 循环结束还有剩余，插入剩余新节点
+    if (newStartIdx <= newEndIdx) {
+        console.log('插入new剩余的');
+        const before = newCh[newEndIdx + 1] == null ? null : newCh[newEndIdx + 1].elm;
+        for (let i = newStartIdx; i <= newEndIdx; i++) {
+            // insertBefore方法可识别null，自动排到队尾
+            // newCh[i]不是真DOM，要用createElement
+            parentElm.insertBefore(createElement(newCh[i]), before)
+        }
+    }else if (oldStartIdx <= oldEndIdx) {
+        console.log('old还有节点没处理完')
+        // 批量删除oldStart和oldEnd指针之间
+        for (let i = oldStartIdx; i <= oldEndIdx; i++) {
+            parentElm.removeChild(oldCh[i].elm);
         }
     }
 }
