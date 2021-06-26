@@ -50,3 +50,13 @@ function parsePath(str) {
     return obj;
   };
 }
+// var fn = parsePath('a.b.c.d');
+// var v = fn({
+//     a: {
+//         b: {
+//             c: {
+//                 d: 55
+//             }
+//         }
+//     }
+// })
