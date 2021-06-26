@@ -1,7 +1,6 @@
-import defineReactive from "./defineReactive";
-import Observer from "./Object";
+import observe from "./observe";
 
-var obj = {
+const obj = {
   a: {
     m: {
       n: 5,
@@ -10,17 +9,5 @@ var obj = {
   b: 4,
 };
 
-// 创建observe函数
-function observe(value) {
-  // 只为对象服务
-  if (typeof value != "object") return;
-  let ob;
-  if (typeof value.__ob__ !== "undefined") {
-    ob = value.__ob__;
-  } else {
-    ob = new Observer(value);
-  }
-  return ob;
-}
-
-observe(obj)
+observe(obj);
+obj.a.m = 10;
