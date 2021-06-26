@@ -1,5 +1,6 @@
 import observe from "./observe";
 import Dep from "./Dep";
+import {def} from "./utils";
 
 export default function defineReactive(data, key, val) {
   const dep = new Dep();
@@ -16,6 +17,13 @@ export default function defineReactive(data, key, val) {
     // getter
     get() {
       console.log("你试图访问" + key + "属性");
+      // 如果处于收集依赖阶段
+      if (Dep.target) {
+        dep.depend();
+        if (childOb) {
+          childOb.dep.depend();
+        }
+      }
       return val;
     },
     // setter
