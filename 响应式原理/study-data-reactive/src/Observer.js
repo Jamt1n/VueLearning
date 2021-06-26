@@ -1,5 +1,6 @@
 import { def } from "./utils";
 import defineReactive from "./defineReactive";
+import {arrayMethods} from './array'
 
 export default class Observer {
   constructor(value) {
@@ -8,7 +9,13 @@ export default class Observer {
     def(value, "__ob__", this, false);
     console.log("我是Observer构造器", value);
     // 目的是将一个正常的object转换为每个层级的属性都是响应式（可以被侦测的）的object
-    this.walk(value);
+    // 检查数组还是对象
+    if (Array.isArray(value)) {
+      // 如果是数组，强行将数组原型指向arrayMethods
+      Object.setPrototypeOf(value, arrayMethods);
+    }else {
+      this.walk(value);
+    }
   }
   // 遍历
   walk(value) {

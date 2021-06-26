@@ -59,3 +59,31 @@
 ![image-20210626211123258](README.assets/image-20210626211123258.png)
 
 ![image-20210626210954641](README.assets/image-20210626210954641.png)
+
+
+
+## 对数组的处理（7种方法改写）
+
+### Array.prototype
+
+![image-20210626235030059](README.assets/image-20210626235030059.png)
+
+#### - push
+
+#### - pop
+
+#### - shift
+
+#### - unshift
+
+#### - splice
+
+#### - sort
+
+#### - reverse
+
+**以Array.prototype为原型，创建arrayMethods对象，利用Object.setPrototypeOf,强制让数组指向arrayMethods**
+
+![image-20210626235556299](README.assets/image-20210626235556299.png)
+
+### Object.setPrototypeOf(o, arrayMethods) == o.\_\_proto\_\_ = arrayMethods
