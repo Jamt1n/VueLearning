@@ -1,5 +1,8 @@
 import observe from "./observe";
+import Dep from "./Dep";
+
 export default function defineReactive(data, key, val) {
+  const dep = new Dep();
   if (arguments.length == 2) {
     val = data[key];
   }
@@ -12,18 +15,20 @@ export default function defineReactive(data, key, val) {
     configurable: true,
     // getter
     get() {
-      console.log("你试图访问"+ key +"属性");
+      console.log("你试图访问" + key + "属性");
       return val;
     },
     // setter
     set(newValue) {
-      console.log("你试图改变"+ key +"属性", newValue);
+      console.log("你试图改变" + key + "属性", newValue);
       if (val === newValue) {
         return;
       }
       val = newValue;
       // 新值被observe
-      childOb = observe(newValue)
+      childOb = observe(newValue);
+      // 发布订阅模式，通知dep
+      dep.notify();
     },
   });
 }

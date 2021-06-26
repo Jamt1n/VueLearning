@@ -47,6 +47,7 @@ methodsNeedChange.forEach(methodName => {
         }
 
         console.log('啦啦啦');
+        ob.dep.notify();
         return result;
     }, false);
 })

@@ -18,6 +18,6 @@ const obj = {
 };
 
 observe(obj);
-obj.g.push(66)
+obj.a.m.n = 88;
 console.log(obj.g)
 
