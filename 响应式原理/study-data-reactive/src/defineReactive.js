@@ -1,6 +1,5 @@
 import observe from "./observe";
 import Dep from "./Dep";
-import {def} from "./utils";
 
 export default function defineReactive(data, key, val) {
   const dep = new Dep();
