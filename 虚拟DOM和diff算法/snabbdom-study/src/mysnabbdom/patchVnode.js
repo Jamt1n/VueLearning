@@ -7,8 +7,8 @@ export default function patchVnode(oldVnode, newVnode) {
     if (oldVnode === newVnode) return;
     // 判断新vnode有没有text属性
     if (
-        newVnode.text != undefined && (newVnode.children == undefined ||
-        newVnode.children.length == 0)
+        newVnode.text != undefined &&
+        (newVnode.children === undefined || newVnode.children.length == 0)
     ) {
         // 新vnode有text属性
         if (newVnode.text != oldVnode.text) {
@@ -45,9 +45,9 @@ export default function patchVnode(oldVnode, newVnode) {
             //清空老节点内容
             oldVnode.elm.innerHTML = "";
             // 遍历新节点的children，创建dom 上树
-            for (let i = 0; i < newVnode.children.length; i++) {
-                let dom = createElement(newVnode.children[i]);
-                oldVnode.elm.appendChild(dom);
+            for (let ch of newVnode.children) {
+                let chDom = createElement(ch);
+                oldVnode.elm.appendChild(chDom);
             }
         }
     }

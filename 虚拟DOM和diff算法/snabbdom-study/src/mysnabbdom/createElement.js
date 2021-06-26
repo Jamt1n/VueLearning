@@ -13,9 +13,8 @@ export default function createElement(vnode) {
     domNode.innerText = vnode.text;
   } else if (Array.isArray(vnode.children) && vnode.children.length > 0) {
     //  它内部是子节点，纪要递归子节点
-    for (let i = 0; i < vnode.children.length; i++) {
+    for (let ch of vnode.children) {
       // 得到当前这个children
-      let ch = vnode.children[i];
       // 创建出它的DOM，一旦调用createElement意味着：创建出DOM了，并且它的elm属性指向了创建出的DOM，但是还没有上树，是一个孤儿节点
       let chDOM = createElement(ch);
       // 上树

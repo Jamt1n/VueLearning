@@ -21,11 +21,12 @@ export default function patch(oldVnode, newVnode) {
   } else {
     //    暴力插入新的，删除旧的
     let newVnodeElm = createElement(newVnode);
+    let oldVnodeElm = oldVnode.elm;
     // 插入到老节点之前
-    if (oldVnode.elm.parentNode && newVnodeElm) {
-      oldVnode.elm.parentNode.insertBefore(newVnodeElm, oldVnode.elm);
+    if (oldVnodeElm) {
+      oldVnodeElm.parentNode.insertBefore(newVnodeElm, oldVnodeElm);
     }
     // 删除老节点
-    oldVnode.elm.parentNode.removeChild(oldVnode.elm);
+    oldVnodeElm.parentNode.removeChild(oldVnodeElm);
   }
 }
