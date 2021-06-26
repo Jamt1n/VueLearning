@@ -17,6 +17,7 @@ const obj = {
   g: [22, 33, 44, 55]
 };
 
-
-obj.g.push(66)
 observe(obj);
+obj.g.push(66)
+console.log(obj.g)
+
