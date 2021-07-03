@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body></body>
+  <script>
+    // 缓存对象
+    let cache = {};
+    //输出斐波那契数列前10项 1、1、2、3、5、8、13、21、34、55
+    function fib(n) {
+      // 缓存对象有值
+      if (cache.hasOwnProperty()) {
+        return cache[n];
+      }
+      // 缓存对象没有值
+      let v = n == 0 || n == 1 ? 1 : fib(n - 1) + fib(n - 2);
+      cache[n] = v;
+      return v;
+    }
+
+    for (let i = 0; i <= 9; i++) {
+      console.log(fib(i));
+    }
+  </script>
+</html>

@@ -1,0 +1,29 @@
+## 抽象语法树是什么
+
+![image-20210703143330602](README.assets/image-20210703143330602.png)
+
+![image-20210703143424137](README.assets/image-20210703143424137.png)
+
+### 抽象语法树本质上就是一个JS对象
+
+![image-20210703143457548](README.assets/image-20210703143457548.png)
+
+![image-20210703143605815](README.assets/image-20210703143605815.png)
+
+### 抽象语法树和虚拟节点的关系
+
+![image-20210703144246118](README.assets/image-20210703144246118.png)
+
+### 算法储备
+
+![image-20210703150729281](README.assets/image-20210703150729281.png)
+
+#### 递归
+
+![image-20210703150705422](README.assets/image-20210703150705422.png)
+
+#### cache思想
+
+![image-20210703151451786](README.assets/image-20210703151451786.png)
+
+![image-20210703152643805](README.assets/image-20210703152643805.png)

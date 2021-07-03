@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body></body>
+  <script>
+    // 转换数组的形式[1,2,3,[4,5]]
+    let arr = [1, 2, 3, [4, 5]];
+    // 转换函数 1
+    // function convert(arr) {
+    //     let res = [];
+    //     arr.forEach((item,i)=> {
+    //         if (typeof item == 'number') {
+    //             res.push({
+    //                 value: arr[i]
+    //             })
+    //         }else if (Array.isArray(item)) {
+    //             res.push({
+    //                 children: convert(item)
+    //             })
+    //         }
+    //     })
+    //     return res;
+    // }
+    // 转换函数 2
+    function convert(item) {
+        if (typeof item == 'number') {
+            return {
+                value: item
+            }
+        }else if (Array.isArray(item)) {
+            return {
+                children: item.map(_item => convert(_item))
+            }
+        }
+    }
+
+
+    console.log(convert(arr))
+  </script>
+</html>
