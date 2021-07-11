@@ -1,10 +1,12 @@
+import parseAttrString from "./parseAttrString";
+
 export default function (templateStr) {
   //指针
   let index = 0;
   // 剩余部分
   let rest = "";
   // 开始标记
-  let startRegExp = /^\<([a-z]+[1-6]?)\>/;
+  let startRegExp = /^\<([a-z]+[1-6]?)(\s[^\<]+)?\>/;
   // 结束标记
   let endRegExp = /^\<\/([a-z]+[1-6]?)\>/;
   // 抓取结束标记前的文字
@@ -17,11 +19,13 @@ export default function (templateStr) {
     rest = templateStr.substring(index);
     if (startRegExp.test(rest)) {
       let tag = rest.match(startRegExp)[1];
+      let attrsString = rest.match(startRegExp)[2];
       console.log("检测到开始标志", tag);
       stack1.push(tag);
-      stack2.push({'tag':tag, "children":[]});
-      // 指针移动标签的长度+2，为什么要+2，因为<>占两位
-      index += tag.length + 2;
+      stack2.push({'tag':tag, "children":[], 'attr': parseAttrString(attrsString)});
+      // 指针移动标签的长度+2,再加attrsString长度，为什么要+2，因为<>占两位
+      const attrsStringLength = attrsString != null ? attrsString.length:0
+      index += tag.length + 2 + attrsStringLength;
     } else if (endRegExp.test(rest)) {
       let tag = rest.match(endRegExp)[1];
       console.log("检测到结束标志", tag);
